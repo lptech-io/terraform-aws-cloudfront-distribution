@@ -1,5 +1,5 @@
 locals {
-  reference = replace(replace(var.aliases[0], "*.", ""), ".", "-")
+  reference = replace(replace(replace(var.aliases[0], "*.", ""), ".", "-"), "*", "") # TODO: Find a better solution
 }
 
 resource "aws_cloudfront_cache_policy" "default" {
